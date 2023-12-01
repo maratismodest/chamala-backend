@@ -12,6 +12,10 @@ async function start() {
         .setDescription('Документация REST API')
         .setVersion('1.0.0')
         .addTag('Chamala')
+        .setExternalDoc(
+            `${process.env.SERVER_DOMAIN_URL}/swagger.json`,
+            '/api/docs-json',
+        )
         .build();
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup('/api/docs', app, document);
